@@ -18,13 +18,15 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "@/api/axiosInstance";
+import { Loader } from "lucide-react";
+import { useState } from "react";
 
 //const apiUrl = "http://localhost:5000/api";
 const Login = () => {
-  // ...
+  const [loading, setLoading] = useState(false);
 
-  console.log("toast", toast)
-  const navigate = useNavigate()
+  console.log("toast", toast);
+  const navigate = useNavigate();
   const formSchema = z.object({
     email: z.string().min(2, {
       message: "Enter email address",
@@ -42,22 +44,23 @@ const Login = () => {
   });
 
   const onSubmit = async (data: any) => {
+    setLoading(true);
     console.log(data);
-    try{
+    try {
       const response = await axiosInstance.post("/user/login", data);
       if (response) {
-        console.log(response.data)
-        toast.success(response.data.mesage || "Login successfully")
-        localStorage.setItem('authToken', response.data.token)
+        console.log(response.data);
+        toast.success(response.data.mesage || "Login successfully");
+        localStorage.setItem("authToken", response.data.token);
         setTimeout(() => {
-          navigate("/")
-        }, 1500);
+          navigate("/");
+        }, 700);
       }
-    }
-    catch(error){
-      toast.error("invalid login")
-      console.error(error)
-
+    } catch (error) {
+      toast.error("invalid login");
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -118,8 +121,13 @@ const Login = () => {
                     </FormItem>
                   )}
                 />
+
                 <Button type="submit" className="w-full">
-                  Submit
+                  {loading ? (
+                    <Loader className=" size-5 shrink-0 animate-spin" />
+                  ) : (
+                    "Submit"
+                  )}
                 </Button>
               </form>
             </Form>
@@ -128,7 +136,9 @@ const Login = () => {
           <div className="w-full md:w-3/5 flex flex-col gap-2 items-center justify-center">
             <p className="text-sm text-blue">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-[#3B529E]">Sign Up</Link>
+              <Link to="/signup" className="text-[#3B529E]">
+                Sign Up
+              </Link>
             </p>
           </div>
         </div>
