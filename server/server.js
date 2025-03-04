@@ -6,6 +6,29 @@ import cors from "cors";
 import userRoutes from "./src/routes/userRoute.js";
  import emailRoutes from "./src/routes/emailRoute.js";
 
+ import fs from 'fs';
+import path from 'path';
+
+// Log the project structure
+const logDir = (dir, level = 0) => {
+  const files = fs.readdirSync(dir);
+  files.forEach(file => {
+    const filePath = path.join(dir, file);
+    const stats = fs.statSync(filePath);
+    console.log('  '.repeat(level) + file + (stats.isDirectory() ? '/' : ''));
+    if (stats.isDirectory()) {
+      logDir(filePath, level + 1);
+    }
+  });
+};
+
+try {
+  console.log("Project structure:");
+  logDir('/opt/render/project/src');
+} catch (err) {
+  console.error("Error logging directory structure:", err);
+}
+
 
 dotenv.config();
 

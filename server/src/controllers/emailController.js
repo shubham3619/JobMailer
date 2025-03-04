@@ -1,7 +1,6 @@
 import { sendEmail } from "../utils/sendEmail.js";
 import User from "../models/User.js";
 import SentEmail from "../models/SentEmail.js";
-import mongoose from "mongoose";
 
 export const sendEmailController = async (req, res) => {
   const { hrName, hrEmail, companyName, subject, coverLetter } = req.body;
