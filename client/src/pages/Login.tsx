@@ -21,7 +21,7 @@ import axiosInstance from "@/api/axiosInstance";
 import { Loader } from "lucide-react";
 import { useState } from "react";
 
-//const apiUrl = "http://localhost:5000/api";
+
 const Login = () => {
   const [loading, setLoading] = useState(false);
 
@@ -47,7 +47,7 @@ const Login = () => {
     setLoading(true);
     console.log(data);
     try {
-      const response = await axiosInstance.post("/user/login", data);
+      const response = await axiosInstance.post('/user/login', data);
       if (response) {
         console.log(response.data);
         toast.success(response.data.mesage || "Login successfully");
