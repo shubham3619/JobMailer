@@ -29,8 +29,8 @@ const connectDB = async () => {
 connectDB();
 
 // Routes
-app.use("/api/user", userRoutes);
-app.use("/api/email", emailRoutes);
+app.use("/user", userRoutes);
+app.use("/email", emailRoutes);
 
 // Basic route to verify server is running
 app.get("/", (req, res) => {
