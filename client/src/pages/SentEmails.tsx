@@ -88,7 +88,7 @@ const SentEmails = () => {
       link.click();
       
       // Clean up and remove the link
-      link.parentNode.removeChild(link);
+      link.parentNode?.removeChild(link);
       
       toast.success("Resume downloaded successfully");
     } catch (error) {
@@ -108,6 +108,7 @@ const SentEmails = () => {
       return format(new Date(dateString), "MMM d, yyyy 'at' h:mm a");
     } catch (error) {
       return dateString;
+      console.log(error);
     }
   };
 

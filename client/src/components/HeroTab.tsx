@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Button } from "./ui/button";
-import { ArrowRight, Mail, PieChart, Clock, Book, User, ChevronRight, MapPin, FileCheck } from "lucide-react";
+import { ArrowRight, Mail, PieChart, Clock,  ChevronRight, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const HeroTab = () => {
@@ -300,7 +300,7 @@ const HeroTab = () => {
       </div>
       
       {/* Add custom styles for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes blob {
           0% { transform: translate(0px, 0px) scale(1); }
           33% { transform: translate(30px, -50px) scale(1.1); }

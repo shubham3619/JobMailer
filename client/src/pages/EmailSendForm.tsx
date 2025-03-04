@@ -70,7 +70,7 @@ const EmailSendForm = () => {
         form.reset();
       }
     } catch (error) {
-      toast.error(error?.message || "An error occurred");
+      toast.error( "Email not sent. Please try again");
       console.error(error);
     } finally {
       setLoading(false);

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { InputProps } from "@/components/ui/input";
+ import { InputProps } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 
 const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(

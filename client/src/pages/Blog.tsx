@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Clock, Calendar, Tag, Search, Filter, ArrowLeft, ArrowRight } from "lucide-react";
+import {  Clock, Calendar,  Search, Filter, ArrowLeft, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const BlogComponent = () => {
@@ -343,7 +343,7 @@ const BlogComponent = () => {
       </div>
 
       {/* Add custom styles for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes blob {
           0% { transform: translate(0px, 0px) scale(1); }
           33% { transform: translate(30px, -50px) scale(1.1); }
